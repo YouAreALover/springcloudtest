@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<!-- namespace 对应的是接口的全名 -->
+<mapper namespace="com.lz.springcloud.mapper.DeptMapper">
+
+	<select id="findById" resultType="com.lz.springcloud.entity.Dept">
+		select dname,db_source from dept where deptno = #{deptno}
+	</select>
+
+	<select id="findAll" resultType="com.lz.springcloud.entity.Dept">
+		select deptno,dname,db_source from dept
+	</select>
+
+	<insert id="addDept">
+		INSERT INTO dept(dname,db_source) VALUES(#{dname},DATABASE());
+	</insert>
+</mapper>
