@@ -9,6 +9,8 @@
     <modules>
         <module>mecroservicecloud-api</module>
         <module>microservice-provider-8001</module>
+        <module>micorservice-consumer-80</module>
+        <module>microservice-eureka-7001</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -67,4 +69,26 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <finalName>springcloudtest</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <delimiters>
+                        <delimit>$</delimit>         
+                    </delimiters>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
